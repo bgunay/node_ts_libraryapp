@@ -62,6 +62,15 @@ export class BooksController {
         return ResponseUtil.sendResponse<any>(res, 'Fetch book successfully', bookInfo)
     }
 
+    /**
+     * Creates a new book in the database.
+     *
+     * @param req - Express request object containing the book details in the body.
+     * @param res - Express response object to send the created book.
+     * @param _ - NextFunction object, not used in this method.
+     * @returns A Promise that resolves to a Response object containing the created book.
+     * @throws An error if there's a failure in creating the book.
+     */
     async create(req: Request, res: Response, _: NextFunction) {
         const { name } = req.body
         const dto = new BookDto()

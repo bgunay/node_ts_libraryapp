@@ -3,7 +3,7 @@ import { BooksController } from '@/controllers/BooksController'
 import { AppDataSource } from '@database/data-source'
 import { BookEntity } from '@database/entities/book.entity'
 import { ResponseUtil } from '@/utils/Response'
-import { validateOrReject, ValidationError } from "class-validator"
+import { ValidationError } from 'class-validator'
 
 jest.mock('@database/data-source')
 jest.mock('@/utils/Response')
@@ -11,7 +11,7 @@ jest.mock('@/utils/Response')
 describe('BooksController', () => {
     let mockRequest: Partial<Request>
     let mockResponse: Partial<Response>
-    let nextFunction: NextFunction = jest.fn()
+    const nextFunction: NextFunction = jest.fn()
 
     beforeEach(() => {
         mockRequest = {}
@@ -110,6 +110,7 @@ describe('BooksController', () => {
             save: jest.fn().mockResolvedValue(mockBookEntity),
         }
         AppDataSource.getRepository = jest.fn().mockReturnValue(mockRepo)
+
         ResponseUtil.sendResponse = jest.fn().mockImplementation((res, message, data) =>
             res.status(200).json({
                 success: true,
@@ -138,33 +139,32 @@ describe('BooksController', () => {
 
         const booksController = new BooksController()
 
-
         const asyncMock = jest.fn(async () => {
             await booksController.create(mockRequest as Request, mockResponse as Response, next)
-        });
+        })
 
-        asyncMock().catch(err => {
-            let firstError = err[0]
+        asyncMock().catch((err) => {
+            const firstError = err[0]
             expect(firstError).toBeInstanceOf(ValidationError)
-            let vErr = firstError as ValidationError
-            expect(vErr.property).toBe("name")
+            const vErr = firstError as ValidationError
+            expect(vErr.property).toBe('name')
         })
     })
 
     it('test_create_book_without_name', async () => {
-        mockRequest.body = { }
+        mockRequest.body = {}
 
         const next = jest.fn()
         const booksController = new BooksController()
         const asyncMock = jest.fn(async () => {
             await booksController.create(mockRequest as Request, mockResponse as Response, next)
-        });
+        })
 
-        asyncMock().catch(err => {
-            let firstError = err[0]
+        asyncMock().catch((err) => {
+            const firstError = err[0]
             expect(firstError).toBeInstanceOf(ValidationError)
-            let vErr = firstError as ValidationError
-            expect(vErr.property).toBe("name")
-        });
-    });
+            const vErr = firstError as ValidationError
+            expect(vErr.property).toBe('name')
+        })
+    })
 })

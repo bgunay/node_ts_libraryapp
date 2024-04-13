@@ -14,11 +14,11 @@ export class ResponseUtil {
      * @returns The Express Response object with the response data.
      */
     static sendResponse<T>(
-      res: Response,
-      message: string,
-      data: T,
-      paginationInfo: any = null,
-      statusCode = 200
+        res: Response,
+        message: string,
+        data: T,
+        paginationInfo: any = null,
+        statusCode = 200
     ): Response<T> {
         return res.status(statusCode).json({
             success: true,

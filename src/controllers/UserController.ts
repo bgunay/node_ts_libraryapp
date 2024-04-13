@@ -9,8 +9,18 @@ import { BorrowEntity } from '@database/entities/borrow.entity'
 import { BookEntity } from '@database/entities/book.entity'
 import { IsNull } from 'typeorm'
 
+/**
+ * @classdesc This class handles the CRUD operations for User entities.
+ */
 export class UserController {
-    async create(req: Request, res: Response, _: NextFunction) {
+    /**
+     * @description This method creates a new user.
+     * @param {Request} req - The Express request object.
+     * @param {Response} res - The Express response object.
+     * @param _
+     * @returns {Promise<Response>} - A promise that resolves to a response object.
+     */
+    async create(req: Request, res: Response, _: NextFunction): Promise<Response> {
         const { name } = req.body
         const dto = new UserDto()
         dto.name = name
@@ -24,7 +34,14 @@ export class UserController {
         return ResponseUtil.sendResponse(res, 'Successfully registered', newUser, null)
     }
 
-    async get(_req: Request, res: Response, _: NextFunction) {
+    /**
+     * @description This method retrieves all users.
+     * @param _req
+     * @param {Response} res - The Express response object.
+     * @param _
+     * @returns {Promise<Response>} - A promise that resolves to a response object.
+     */
+    async get(_req: Request, res: Response, _: NextFunction): Promise<Response> {
         try {
             const repo = AppDataSource.getRepository(UserEntity)
             const users = await repo.find({})
@@ -34,7 +51,14 @@ export class UserController {
         }
     }
 
-    async getById(req: Request, res: Response, _: NextFunction) {
+    /**
+     * @description This method retrieves a user by ID.
+     * @param {Request} req - The Express request object.
+     * @param {Response} res - The Express response object.
+     * @param _
+     * @returns {Promise<Response>} - A promise that resolves to a response object.
+     */
+    async getById(req: Request, res: Response, _: NextFunction): Promise<Response> {
         try {
             const { id } = req.params
             const repo = AppDataSource.getRepository(UserEntity)
@@ -71,7 +95,14 @@ export class UserController {
         }
     }
 
-    async borrow(req: Request, res: Response, _: NextFunction) {
+    /**
+     * @description This method borrows a book for a user.
+     * @param {Request} req - The Express request object.
+     * @param {Response} res - The Express response object.
+     * @param _
+     * @returns {Promise<Response>} - A promise that resolves to a response object.
+     */
+    async borrow(req: Request, res: Response, _: NextFunction): Promise<Response> {
         const params = req.params
         const bookRepo = AppDataSource.getRepository(BookEntity)
 
@@ -119,7 +150,14 @@ export class UserController {
         return ResponseUtil.sendResponse(res, 'Successfully reserved', borrow, null)
     }
 
-    async return(req: Request, res: Response, _: NextFunction) {
+    /**
+     * @description This method returns a borrowed book.
+     * @param {Request} req - The Express request object.
+     * @param {Response} res - The Express response object.
+     * @param _
+     * @returns {Promise<Response>} - A promise that resolves to a response object.
+     */
+    async return(req: Request, res: Response, _: NextFunction): Promise<Response> {
         const params = req.params
 
         const dto = new BorrowDto()
