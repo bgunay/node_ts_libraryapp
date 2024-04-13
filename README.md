@@ -10,8 +10,12 @@ Follow the instructions below to set up and run the project locally:
 
 1. **Install Dependencies:**
    ```shell
-   npm install (or yarn install)
+   npm install 
    ```
+   (or yarn install)
+    ```shell
+    yarn install
+   ````
 
 2. **Set Up the Database:**
     - MySQL used in docker-compose.yaml, you can use it or configure your own
