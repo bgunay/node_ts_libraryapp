@@ -20,6 +20,7 @@ Follow the instructions below to set up and run the project locally:
     - `.env` file created for environment variables for database connection.
 
 4. **Run the tests (Unit and Integration Tests)**
+    - Make sure mysql is running!
    ```shell
    npm run test
    ```
