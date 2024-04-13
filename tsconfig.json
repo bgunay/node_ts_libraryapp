@@ -21,8 +21,7 @@
             "reflect-metadata",
             "jest",
             "node"
-        ],
-        "alwaysStrict": false
+        ]
     },
     "include": [
         "./src/**/*.ts",

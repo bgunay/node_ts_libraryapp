@@ -32,7 +32,7 @@ export class ErrorHandler {
     }
 
     static formatErrors(err: Array<ValidationError>) {
-        const errors = Array<ValidationError>
+        const errors = {}
         err.forEach((e) => {
             if (!errors[e.property]) {
                 errors[e.property] = []

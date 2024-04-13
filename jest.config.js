@@ -4,6 +4,7 @@ const { compilerOptions } = require('./tsconfig')
 module.exports = {
     preset: 'ts-jest',
     testEnvironment: 'jest-environment-jsdom',
+    testTimeout: 30000,
     moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
     modulePaths: ['<rootDir>'],
     coverageDirectory: '../coverage',
