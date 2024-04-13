@@ -33,6 +33,13 @@ Follow the instructions below to set up and run the project locally:
     ```shell
     docker compose up
     ```
+   
+**In package.json** 
+* Usage: npm run "action"
+- Use lint for code errors
+- Use format-check for format errors, and format for pretty formatting.
+- Use precommit for staged files errors.
+- Use typeorm for migrations.
 
 ## 🔧 Technologies Used
 
