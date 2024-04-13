@@ -8,9 +8,9 @@ const username = faker.internet.userName() //Creating a random username
 describe('Testing the express route', () => {
     beforeAll(async () => {
         await AppDataSource.initialize()
-    }, 30000)
+    }, 3000)
 
-    test('successful create user   test', async () => {
+    test('successful create user test', async () => {
         await request(app)
             .post('/users')
             .send({
@@ -21,8 +21,7 @@ describe('Testing the express route', () => {
             })
     })
 
-    test('successful get user all test', async () => {
-        //Testing the successful signup
+    test('successful get all users test', async () => {
         await request(app)
             .get('/users')
             .then((res) => {
@@ -31,12 +30,11 @@ describe('Testing the express route', () => {
     })
 
     test('failed create user', async () => {
-        //Testing the failed signup
         await request(app)
             .post('/users')
             .send({}) //Sending an empty request body
             .then((res) => {
-                expect(res.status).toBe(422) //Checking if the status code is 400
+                expect(res.status).toBe(422) //Checking if the status code is 422
             })
     })
 })

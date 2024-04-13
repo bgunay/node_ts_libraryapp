@@ -15,12 +15,16 @@ Follow the instructions below to set up and run the project locally:
 
 2. **Set Up the Database:**
     - MySQL used in docker-compose.yaml, you can use it or configure your own
-    - 
-
+    -
 3. **Configure Environment Variables:**
     - `.env` file created for environment variables for database connection.
 
-4. **Start the Server:**
+4. **Run the tests (Unit and Integration Tests)**
+   ```shell
+   npm run test
+   ```
+
+5. **Start the Server:**
    ```shell
    npm run prod
    ```
@@ -38,7 +42,7 @@ Follow the instructions below to set up and run the project locally:
 - **Data Validation:** We implemented data validation using a validator library ( express-validator).
 - **Error Handling:** The API handles errors gracefully and returns appropriate error responses.
 - **Docker:** For containerization
-
+- **Jest, Supertest, Faker:** For unit and e2e tests
 ## 📝 API Documentation
 
 You can find detailed API documentation, including request/response examples, in the [Postman Collection](postman_collection.json).
