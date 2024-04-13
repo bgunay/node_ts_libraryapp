@@ -1,0 +1,15 @@
+
+# docker run -d -p 3306:3306 --name=docker-mysql --env="MYSQL_ROOT_PASSWORD=root" --env="MYSQL_DATABASE=invent_analytics_db" --env="MYSQL_USER=invent_analytics_user" --env="MYSQL_PASSWORD=123456!_bgU" mysql
+
+docker exec -it inventanalyticscaseinterview-mysql-1 bash
+
+# mysql -uroot -p
+root
+
+mysql> show databases;
+mysql> use invent_analytics_db;
+mysql> show tables;
+
+
+# running sql script in docker container
+-> docker exec -i docker-mysql mysql -uroot -ptest1234 mydb <tables.sql

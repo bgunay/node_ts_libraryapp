@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["src/*"],
+            "@http/*": ["src/http/*"],
+            "@database/*": ["src/database/*"]
+        },
+        "outDir": "build",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        "noImplicitAny": false,
+        "strictPropertyInitialization": false,
+        "skipLibCheck": true
+    }
+}
