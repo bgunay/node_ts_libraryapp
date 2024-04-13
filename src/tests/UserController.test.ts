@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from 'express'
+import { Request, Response } from 'express'
 import { AppDataSource } from '@database/data-source'
 import { UserController } from '@/controllers/UserController'
 import { UserEntity } from '@database/entities/user.entity'
@@ -88,7 +88,7 @@ describe('UserController', () => {
         expect(mockRepo.findOne).toHaveBeenCalled()
         expect(mockResponse.status).toHaveBeenCalledWith(200)
 
-        let expectedResponse = {
+        const expectedResponse = {
             data: {
                 currentBorrows: [],
                 id: '123',
