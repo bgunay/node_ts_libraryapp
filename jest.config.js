@@ -3,7 +3,7 @@ const { compilerOptions } = require('./tsconfig')
 
 module.exports = {
     preset: 'ts-jest',
-    testEnvironment: 'jest-environment-jsdom',
+    testEnvironment: 'node',
     testTimeout: 30000,
     moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
     modulePaths: ['<rootDir>'],
