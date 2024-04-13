@@ -10,7 +10,7 @@ Follow the instructions below to set up and run the project locally:
 
 1. **Install Dependencies:**
    ```shell
-   npm install
+   npm install (or yarn install)
    ```
 
 2. **Set Up the Database:**
