@@ -17,14 +17,7 @@
         "noImplicitAny": false,
         "strictPropertyInitialization": false,
         "skipLibCheck": true,
-        "types": [
-            "reflect-metadata",
-            "jest",
-            "node"
-        ]
+        "types": ["reflect-metadata", "jest", "node"]
     },
-    "include": [
-        "./src/**/*.ts",
-        "./test/**/*.ts"
-    ]
+    "include": ["./src/**/*.ts", "./test/**/*.ts"]
 }

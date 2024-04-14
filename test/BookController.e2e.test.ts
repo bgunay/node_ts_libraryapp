@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker'
 import request from 'supertest'
 import app from '../src/app'
-import { AppDataSource } from "@database/data-source";
+import { AppDataSource } from '@database/data-source'
 
-const bookName = `Book ${faker.internet.color()}`  //Creating a random bookName
+const bookName = `Book ${faker.internet.color()}` //Creating a random bookName
 
 describe('Testing the express route', () => {
     beforeAll(async () => {

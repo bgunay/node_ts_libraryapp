@@ -1,7 +1,7 @@
 import { faker } from '@faker-js/faker'
 import request from 'supertest'
 import app from '../src/app'
-import { AppDataSource } from "@database/data-source";
+import { AppDataSource } from '@database/data-source'
 
 const username = faker.internet.userName() //Creating a random username
 
